@@ -21,6 +21,10 @@ public class MainController {
     public String room() {
         return "room";
     }
+    @RequestMapping("/roomdetail")
+    public String roomdetail() {
+        return "roomdetail";
+    }
 
     @GetMapping("/user")
     public String userIndex() {
