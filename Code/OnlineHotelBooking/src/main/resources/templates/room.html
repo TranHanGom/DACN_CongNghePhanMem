@@ -171,7 +171,17 @@
                             <img src="img/bg-img/43.jpg" alt="">
                         </div>
                         <!-- Room Content -->
-                        <div class="room-content">
+                        <div class="room-content" >
+                        <tr th:each="room : ${listRooms}">
+                <td th:text="${room.id}">Product ID</td>
+                <td th:text="${room.name}">Name</td>
+                <td th:text="${room.size}">Size</td>
+               
+                <td th:text="${room.price}">Price</td>
+                <td>
+                    
+                </td>
+            </tr>
                             <h2>Room View Sea</h2>
                             <h4>400$ <span>/ Day</span></h4>
                             <div class="room-feature">
