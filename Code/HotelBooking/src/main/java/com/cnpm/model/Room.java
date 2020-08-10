@@ -1,6 +1,8 @@
 package com.cnpm.model;
-// Generated Aug 10, 2020 12:03:13 PM by Hibernate Tools 5.1.10.Final
+// Generated Aug 10, 2020 9:49:16 PM by Hibernate Tools 5.1.10.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,6 +27,8 @@ public class Room implements java.io.Serializable {
 	private String roomPrice;
 	private String roomService;
 	private String roomSize;
+	private String roomImage;
+	private Set<Roomimage> roomimages = new HashSet<Roomimage>(0);
 
 	public Room() {
 	}
@@ -34,6 +39,17 @@ public class Room implements java.io.Serializable {
 		this.roomPrice = roomPrice;
 		this.roomService = roomService;
 		this.roomSize = roomSize;
+	}
+
+	public Room(Roomtype roomtype, String roomName, String roomPrice, String roomService, String roomSize,
+			String roomImage, Set<Roomimage> roomimages) {
+		this.roomtype = roomtype;
+		this.roomName = roomName;
+		this.roomPrice = roomPrice;
+		this.roomService = roomService;
+		this.roomSize = roomSize;
+		this.roomImage = roomImage;
+		this.roomimages = roomimages;
 	}
 
 	@Id
@@ -92,6 +108,24 @@ public class Room implements java.io.Serializable {
 
 	public void setRoomSize(String roomSize) {
 		this.roomSize = roomSize;
+	}
+
+	@Column(name = "room_image", length = 45)
+	public String getRoomImage() {
+		return this.roomImage;
+	}
+
+	public void setRoomImage(String roomImage) {
+		this.roomImage = roomImage;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
+	public Set<Roomimage> getRoomimages() {
+		return this.roomimages;
+	}
+
+	public void setRoomimages(Set<Roomimage> roomimages) {
+		this.roomimages = roomimages;
 	}
 
 }

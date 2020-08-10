@@ -57,21 +57,26 @@
                     <!-- Single Room Area -->
                     <div th:each="room  : ${rooms}" class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/43.jpg" alt="">
+                        <div class="room-thumbnail" >
+                       
+                            <img  th:src="@{'img/bg-img/'+ ${room.roomImage}}" alt="">
                         </div>
                         <!-- Room Content -->
                         <div class="room-content"  >
                         
                             <h2   th:text="${room.roomName}"></h2>
-                            <h4  > <span th:text="${room.roomPrice}"></span></h4>
+                            <h4 th:text="${room.roomPrice}" > <span ></span></h4>
                             <div class="room-feature">
                                 <h6 >Size: <span th:text="${room.roomSize}" ></span></h6>
                         
                                 <h6>Service: <span th:text="${room.roomService}"></span></h6>
+                                <a href="#" class="btn view-detail-btn"> <ins>View Details </ins></a>
                               
                             </div>
+                            
+                              
                             <div class="clearfix"></div>
+                           
                             <button type="submit" class="btn roberto-btn">BOOK NOW</button>
                            
                         </div>

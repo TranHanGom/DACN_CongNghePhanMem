@@ -10,4 +10,5 @@ import com.cnpm.model.Room;
 public interface RoomService {
 	public Iterable<Room> findAll();
 	
+	
 }
