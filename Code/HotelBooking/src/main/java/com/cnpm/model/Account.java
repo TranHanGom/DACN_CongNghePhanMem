@@ -1,5 +1,5 @@
 package com.cnpm.model;
-// Generated Aug 8, 2020 8:32:37 PM by Hibernate Tools 5.1.10.Final
+// Generated Aug 10, 2020 12:03:13 PM by Hibernate Tools 5.1.10.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

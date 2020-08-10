@@ -52,108 +52,32 @@
     <!-- Rooms Area Start -->
     <div class="roberto-rooms-area section-padding-100-0">
         <div class="container">
-            <div class="row">
+            <div class="row" >
                 <div class="col-12 col-lg-8">
                     <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
+                    <div th:each="room  : ${rooms}" class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Room Thumbnail -->
                         <div class="room-thumbnail">
                             <img src="img/bg-img/43.jpg" alt="">
                         </div>
                         <!-- Room Content -->
-                        <div class="room-content">
-                            <h2 href="/roomdetail">Room View Sea</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
+                        <div class="room-content"  >
                         
-                                <h6>Capacity: <span>Max persion 5</span></h6>
+                            <h2   th:text="${room.roomName}"></h2>
+                            <h4  > <span th:text="${room.roomPrice}"></span></h4>
+                            <div class="room-feature">
+                                <h6 >Size: <span th:text="${room.roomSize}" ></span></h6>
+                        
+                                <h6>Service: <span th:text="${room.roomService}"></span></h6>
                               
                             </div>
+                            <div class="clearfix"></div>
                             <button type="submit" class="btn roberto-btn">BOOK NOW</button>
-                            
+                           
                         </div>
                     </div>
 
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/44.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Small Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                               
-                               <h6>Capacity: <span>Max persion 5</span></h6>
-                                
-                            </div>
-                            <button type="submit" class="btn roberto-btn">BOOK NOW</button>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/45.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Premium King Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                
-                               <h6>Capacity: <span>Max persion 5</span></h6>
-                                
-                            </div>
-                            <button type="submit" class="btn roberto-btn">BOOK NOW</button>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="700ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/46.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Room Vip King</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                
-                               <h6>Capacity: <span>Max persion 5</span></h6>
-                                
-                            </div>
-                           <button type="submit" class="btn roberto-btn">BOOK NOW</button>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="900ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/47.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Royal Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                               
-                               <h6>Capacity: <span>Max persion 5</span></h6>
-                            </div>
-                            <button type="submit" class="btn roberto-btn">BOOK NOW</button>
-                        </div>
-                    </div>
-
+                    
                     <!-- Pagination -->
                     <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="1000ms">
                         <ul class="pagination">
@@ -182,14 +106,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mb-30">
-                                <label for="type">Room Type</label>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <select name="sing" id="type" class="form-control">
-                                            <option value="sing">Single Room</option>
-                                            <option value="01">Double Room</option>
-                                            <option value="02">Family Room</option>
+                            
+                            <div class="form-group mb-30" >
+               
+                                <label for="type" >Room Type</label>
+                                <div class="row" >
+                                    <div class="col-6" >
+                                        <select name="sing" id="type" class="form-control"  >
+                                            <option value="sing" th:each="roomtype : ${roomtypes}" th:text="${roomtype.name}" th:value="${roomtype.id}"
+            th:selected="${roomtype.id eq roomtypes}"></option>
+                                            
                                             
                                         </select>
                                     </div>

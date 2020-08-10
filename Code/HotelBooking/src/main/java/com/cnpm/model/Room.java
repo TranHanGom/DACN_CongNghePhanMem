@@ -1,5 +1,5 @@
 package com.cnpm.model;
-// Generated Aug 8, 2020 8:22:53 PM by Hibernate Tools 5.1.10.Final
+// Generated Aug 10, 2020 12:03:13 PM by Hibernate Tools 5.1.10.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,18 +21,18 @@ public class Room implements java.io.Serializable {
 	private Integer roomId;
 	private Roomtype roomtype;
 	private String roomName;
-	private int roomPrice;
-	private String roomCapacity;
-	private int roomSize;
+	private String roomPrice;
+	private String roomService;
+	private String roomSize;
 
 	public Room() {
 	}
 
-	public Room(Roomtype roomtype, String roomName, int roomPrice, String roomCapacity, int roomSize) {
+	public Room(Roomtype roomtype, String roomName, String roomPrice, String roomService, String roomSize) {
 		this.roomtype = roomtype;
 		this.roomName = roomName;
 		this.roomPrice = roomPrice;
-		this.roomCapacity = roomCapacity;
+		this.roomService = roomService;
 		this.roomSize = roomSize;
 	}
 
@@ -67,30 +67,30 @@ public class Room implements java.io.Serializable {
 		this.roomName = roomName;
 	}
 
-	@Column(name = "room_price", nullable = false)
-	public int getRoomPrice() {
+	@Column(name = "room_price", nullable = false, length = 45)
+	public String getRoomPrice() {
 		return this.roomPrice;
 	}
 
-	public void setRoomPrice(int roomPrice) {
+	public void setRoomPrice(String roomPrice) {
 		this.roomPrice = roomPrice;
 	}
 
-	@Column(name = "room_capacity", nullable = false, length = 45)
-	public String getRoomCapacity() {
-		return this.roomCapacity;
+	@Column(name = "room_service", nullable = false, length = 45)
+	public String getRoomService() {
+		return this.roomService;
 	}
 
-	public void setRoomCapacity(String roomCapacity) {
-		this.roomCapacity = roomCapacity;
+	public void setRoomService(String roomService) {
+		this.roomService = roomService;
 	}
 
-	@Column(name = "room_size", nullable = false)
-	public int getRoomSize() {
+	@Column(name = "room_size", nullable = false, length = 45)
+	public String getRoomSize() {
 		return this.roomSize;
 	}
 
-	public void setRoomSize(int roomSize) {
+	public void setRoomSize(String roomSize) {
 		this.roomSize = roomSize;
 	}
 
