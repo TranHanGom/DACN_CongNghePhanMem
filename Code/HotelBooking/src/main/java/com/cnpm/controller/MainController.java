@@ -44,10 +44,7 @@ public class MainController {
     public String register() {
         return "register";
     }
-    @GetMapping("/booking")
-    public String booking() {
-        return "booking";
-    }
+   
     @GetMapping("/contact")
     public String contact() {
         return "contact";

@@ -1,71 +1,46 @@
+$(function(){
+	$("#wizard").steps({
+        headerTag: "h4",
+        bodyTag: "section",
+        transitionEffect: "fade",
+        enableAllSteps: true,
+        enablePagination: false,
+        transitionEffectSpeed: 500,
+        labels: {
+            current: ""
+        }
+    });
 
-(function ($) {
-    "use strict";
-
-
-     /*==================================================================
-    [ Focus input ]*/
-    $('.input100').each(function(){
-        $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
-                $(this).addClass('has-val');
-            }
-            else {
-                $(this).removeClass('has-val');
-            }
-        })    
+    // Custome Button Jquery Step
+    $('.forward').click(function(){
+    	$("#wizard").steps('next');
     })
-  
-  
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+    // Date Picker
+    var dp1 = $('#dp1').datepicker().data('datepicker');
+    dp1.selectDate(new Date());
+    var dp2 = $('#dp2').datepicker().data('datepicker');
+    dp2.selectDate(new Date());
+    var dp3 = $('#dp3').datepicker().data('datepicker');
+    dp3.selectDate(new Date());
+    var dp4 = $('#dp4').datepicker().data('datepicker');
+    dp4.selectDate(new Date());
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
-
-        return check;
+    // Select Dropdown
+    $('html').click(function() {
+        $('.select .dropdown').hide(); 
     });
-
-
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-        });
+    $('.select').click(function(event){
+        event.stopPropagation();
     });
+    $('.select .select-control').click(function(){
+        $(this).parent().next().toggle();
+    })    
+    $('.select .dropdown li').click(function(){
+        $(this).parent().toggle();
+        var text = $(this).attr('rel');
+        $(this).parent().prev().find('div').text(text);
+    })
+})
 
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
-    }
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
-    }
-
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
-    
-    
-
-})(jQuery);

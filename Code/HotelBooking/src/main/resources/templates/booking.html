@@ -1,66 +1,222 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-    
-
+<html>
 	<head>
 		<meta charset="utf-8">
-		<title>Booking Form</title>
+		<title>FormWizard_v2</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+		<meta name="author" content="colorlib.com">
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="fonts/linearicons/style.css">
+
 		<!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+		<!-- DATE-PICKER -->
+		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
 
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="rcss/style.css">
+		<link rel="stylesheet" href="vendor/style.css">
 	</head>
-
 	<body>
-
-		<div class="wrapper" style="background-image: url('images/bg-01.jpg');">
+		<div class="wrapper">
 			<div class="inner">
 				
-				<form action="/login.html">
-					<h3>Booking</h3>
-					<div class="form-group">
-						<input type="text" placeholder="First Name" class="form-control">
-						<input type="text" placeholder="Last Name" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="text" placeholder="Email" class="form-control">
-						<input type="text" placeholder="Confirmation Email" class="form-control">
-					</div>
-					<div class="form-group">
-						<input type="text" placeholder="Phone" class="form-control">
-						<input type="text" placeholder="Addresss" class="form-control">
-					</div>
-					<div class="col-6 col-md-2 col-lg-3">
-                        <label for="checkIn">Check In</label>
-                        <input type="date" class="form-control" id="checkIn" name="checkin-date">
-                    </div>
-                    <div class="col-6 col-md-2 col-lg-3">
-                        <label for="checkOut">Check Out</label>
-                        <input type="date" class="form-control" id="checkOut" name="checkout-date">
-                    </div>
-                    <div class="col-6 col-md-2">
-                        <label for="room">Room</label>
-                        <select name="room" id="room" class="form-control">
-                            <option value="01">Single Room</option>
-                            <option value="02">Double Room</option>
-                            <option value="03">Twin Room</option>
-                            <option value="04">Family Room</option>
-                           
-                        </select>
-                    </div>
-                   
-					<button>Booking
-						<i class="zmdi zmdi-arrow-right"></i>
-					</button>
-				</form>
+            	<div id="wizard">
+            		
+
+					<!-- SECTION 2 -->
+	                <h4>Room Information</h4> 
+	                <section class="section-style">
+                		
+                		<div class="form-wrapper">
+							
+                			<div class="form-row">
+                				<div class="form-holder w-100 room-detail">
+									
+									<div class="bill">
+										<div class="bill-cell" th:each="item : ${session.stay}">
+											<div class="bill-item">
+												<div class="bill-unit">
+													Room 1 :  <span th:text="${item.room.roomName}"></span>
+												</div>
+												<span class="price" th:text="${item.room.roomPrice}"></span>
+											</div>
+											<div class="bill-item people">
+												
+											</div>
+										</div>
+										
+										<div class="bill-cell">
+											
+											<div class="bill-item total-price">
+												<div class="bill-unit">
+													Total Price :
+												</div>
+												<span class="price">$88</span>
+											</div>
+											
+											
+										</div>
+									</div>	
+								</div>
+                			</div>
+                			
+                			
+                			
+	                		<button class="forward">Book now
+								<i class="zmdi zmdi-long-arrow-right"></i>
+							</button>
+                		</div>
+	                </section>
+
+
+	                <!-- SECTION 3 -->
+	                <h4>Make a Reservation</h4>
+	                <section>
+                    	<div class="form-row">
+							<div class="form-holder">
+								<input type="text" class="form-control" placeholder="First Name :">
+							</div>
+							<div class="form-holder">
+								<input type="text" class="form-control" placeholder="Last Name :">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-holder">
+								<input type="text" class="form-control" placeholder="Phone :">
+							</div>
+							<div class="form-holder">
+								<input type="text" class="form-control" placeholder="Mail :">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-holder w-100">
+								<input type="text" class="form-control" placeholder="Address :">
+							</div>
+						</div>
+						<div class="form-row mb-21">
+							<div class="form-holder w-100">
+								<textarea name="" id="" class="form-control" style="height: 79px;" placeholder="Special Requirements :"></textarea>
+							</div>
+						</div>
+	                    <div class="checkbox">
+							<label>
+								<input type="checkbox"> I have read and accept the <a href="#">terms and conditions.</a>
+								<span class="checkmark"></span>
+							</label>
+						</div>
+	                    <button class="forward" style="width: 195px; margin-top: 44px;">Book by email
+							<i class="zmdi zmdi-long-arrow-right"></i>
+						</button>
+	                </section>
+
+	                <!-- SECTION 4 -->
+	                <h4>Confirmation</h4>
+	                <section class="section-style">
+						<div class="board-wrapper">
+                			<div class="board-inner">
+                				<div class="board-item">
+                					Check In :
+                					<span>2-5-2018</span>
+                				</div>
+                				<div class="board-item">
+                					Check Out :
+                					<span>8-5-2018</span>
+                				</div>
+                			</div>
+                		</div>
+                		<div class="pay-wrapper">
+                			<div class="bill">
+	                			<div  class="bill-cell">
+	                				<div class="bill-item">
+		            					<div class="bill-unit">
+		            						Room 1 :  <span ></span>
+		            					</div>
+		            					<span class="price" ></span>
+		            				</div>
+		            				<div class="bill-item people">
+		            					<div class="bill-unit">
+		            						Adult : <span>2</span>
+		            					</div>
+		            					<div class="bill-unit">
+		            						Children : <span>0</span>
+		            					</div>
+		            				</div>
+	                			</div>
+	            				<div class="bill-cell" style="margin-bottom: 13px">
+	                				<div class="bill-item">
+		            					<div class="bill-unit">
+		            						Room 2 :  <span>Luxury Room</span>
+		            					</div>
+		            					<span class="price">$23</span>
+		            				</div>
+		            				<div class="bill-item people">
+		            					<div class="bill-unit">
+		            						Adult : <span>4</span>
+		            					</div>
+		            					<div class="bill-unit">
+		            						Children : <span>1</span>
+		            					</div>
+		            				</div>
+		            				<div class="bill-item service">
+		            					<div class="bill-unit">
+		            						Rooms & Services :
+		            					</div>
+		            					<span class="price">$80</span>
+		            				</div>
+	                			</div>
+	                			<div class="bill-cell">
+	                				<div class="bill-item vat">
+		            					<div class="bill-unit">
+		            						Vat 8% :
+		            					</div>
+		            					<span class="price">$08</span>
+		            				</div>
+		            				<div class="bill-item total-price">
+		            					<div class="bill-unit">
+		            						Total Price :
+		            					</div>
+		            					<span class="price">$88</span>
+		            				</div>
+		            				<div class="checkbox-circle">
+										<label>
+											<input type="radio" name="payment" value="full payment" checked> Full Payment<br>
+											<span class="checkmark"></span>
+										</label>
+										<label>
+											<input type="radio" name="payment" value="10% Deposit"> 10% Deposit
+											<span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="bill-item total">
+		            					<div class="bill-unit">
+		            						<span>20% Deposit</span>
+		            						Pay the rest on arrival
+		            					</div>
+		            					<span class="price">$78</span>
+		            				</div>
+	                			</div>
+	            			</div>
+	            			<button style="width: 195px; margin-top: 45px;">Confirmation
+								<i class="zmdi zmdi-long-arrow-right"></i>
+							</button>
+                		</div>
+	                </section>
+            	</div>
 			</div>
 		</div>
-		
-	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+
+		<!-- JQUERY STEP -->
+		<script src="js/jquery.steps.js"></script>
+
+		<!-- DATE-PICKER -->
+		<script src="vendor/date-picker/js/datepicker.js"></script>
+		<script src="vendor/date-picker/js/datepicker.en.js"></script>
+
+		<script src="js/main.js"></script>
+<!-- Template created and distributed by Colorlib -->
 </body>
 </html>

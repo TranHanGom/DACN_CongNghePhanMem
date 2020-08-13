@@ -1,5 +1,5 @@
 package com.cnpm.model;
-// Generated Aug 10, 2020 9:49:16 PM by Hibernate Tools 5.1.10.Final
+// Generated Aug 11, 2020 2:59:28 PM by Hibernate Tools 5.1.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +28,7 @@ public class Room implements java.io.Serializable {
 	private String roomService;
 	private String roomSize;
 	private String roomImage;
-	private Set<Roomimage> roomimages = new HashSet<Roomimage>(0);
+	private Set<BookingDetail> bookingDetails = new HashSet<BookingDetail>(0);
 
 	public Room() {
 	}
@@ -42,14 +42,14 @@ public class Room implements java.io.Serializable {
 	}
 
 	public Room(Roomtype roomtype, String roomName, String roomPrice, String roomService, String roomSize,
-			String roomImage, Set<Roomimage> roomimages) {
+			String roomImage, Set<BookingDetail> bookingDetails) {
 		this.roomtype = roomtype;
 		this.roomName = roomName;
 		this.roomPrice = roomPrice;
 		this.roomService = roomService;
 		this.roomSize = roomSize;
 		this.roomImage = roomImage;
-		this.roomimages = roomimages;
+		this.bookingDetails = bookingDetails;
 	}
 
 	@Id
@@ -120,12 +120,12 @@ public class Room implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
-	public Set<Roomimage> getRoomimages() {
-		return this.roomimages;
+	public Set<BookingDetail> getBookingDetails() {
+		return this.bookingDetails;
 	}
 
-	public void setRoomimages(Set<Roomimage> roomimages) {
-		this.roomimages = roomimages;
+	public void setBookingDetails(Set<BookingDetail> bookingDetails) {
+		this.bookingDetails = bookingDetails;
 	}
 
 }

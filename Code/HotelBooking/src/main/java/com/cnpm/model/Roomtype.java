@@ -1,5 +1,5 @@
 package com.cnpm.model;
-// Generated Aug 10, 2020 9:49:16 PM by Hibernate Tools 5.1.10.Final
+// Generated Aug 11, 2020 2:59:28 PM by Hibernate Tools 5.1.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
