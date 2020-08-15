@@ -1,5 +1,5 @@
 package com.cnpm.model;
-// Generated Aug 15, 2020 10:23:04 AM by Hibernate Tools 5.1.10.Final
+// Generated Aug 15, 2020 12:06:00 PM by Hibernate Tools 5.1.10.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -33,6 +33,7 @@ public class Booking implements java.io.Serializable {
 	private Date checkOut;
 	private int unitPrice;
 	private int total;
+	private String requirement;
 
 	public Booking() {
 	}
@@ -50,6 +51,22 @@ public class Booking implements java.io.Serializable {
 		this.checkOut = checkOut;
 		this.unitPrice = unitPrice;
 		this.total = total;
+	}
+
+	public Booking(Room room, String customerName, String customerEmail, String cusomerAddress, String customerPhone,
+			Date createDate, String status, Date checkIn, Date checkOut, int unitPrice, int total, String requirement) {
+		this.room = room;
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+		this.cusomerAddress = cusomerAddress;
+		this.customerPhone = customerPhone;
+		this.createDate = createDate;
+		this.status = status;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		this.unitPrice = unitPrice;
+		this.total = total;
+		this.requirement = requirement;
 	}
 
 	@Id
@@ -165,6 +182,15 @@ public class Booking implements java.io.Serializable {
 
 	public void setTotal(int total) {
 		this.total = total;
+	}
+
+	@Column(name = "requirement", length = 45)
+	public String getRequirement() {
+		return this.requirement;
+	}
+
+	public void setRequirement(String requirement) {
+		this.requirement = requirement;
 	}
 
 }
