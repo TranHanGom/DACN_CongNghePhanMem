@@ -1,5 +1,7 @@
 package com.cnpm.service;
 
-public interface BookingService {
+import com.cnpm.model.Booking;
 
+public interface BookingService {
+	public Booking save(Booking booking);
 }

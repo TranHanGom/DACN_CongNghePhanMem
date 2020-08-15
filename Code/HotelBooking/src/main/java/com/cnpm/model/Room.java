@@ -1,5 +1,5 @@
 package com.cnpm.model;
-// Generated Aug 11, 2020 2:59:28 PM by Hibernate Tools 5.1.10.Final
+// Generated Aug 15, 2020 10:23:04 AM by Hibernate Tools 5.1.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,16 +24,16 @@ public class Room implements java.io.Serializable {
 	private Integer roomId;
 	private Roomtype roomtype;
 	private String roomName;
-	private String roomPrice;
+	private int roomPrice;
 	private String roomService;
 	private String roomSize;
 	private String roomImage;
-	private Set<BookingDetail> bookingDetails = new HashSet<BookingDetail>(0);
+	private Set<Booking> bookings = new HashSet<Booking>(0);
 
 	public Room() {
 	}
 
-	public Room(Roomtype roomtype, String roomName, String roomPrice, String roomService, String roomSize) {
+	public Room(Roomtype roomtype, String roomName, int roomPrice, String roomService, String roomSize) {
 		this.roomtype = roomtype;
 		this.roomName = roomName;
 		this.roomPrice = roomPrice;
@@ -41,15 +41,15 @@ public class Room implements java.io.Serializable {
 		this.roomSize = roomSize;
 	}
 
-	public Room(Roomtype roomtype, String roomName, String roomPrice, String roomService, String roomSize,
-			String roomImage, Set<BookingDetail> bookingDetails) {
+	public Room(Roomtype roomtype, String roomName, int roomPrice, String roomService, String roomSize,
+			String roomImage, Set<Booking> bookings) {
 		this.roomtype = roomtype;
 		this.roomName = roomName;
 		this.roomPrice = roomPrice;
 		this.roomService = roomService;
 		this.roomSize = roomSize;
 		this.roomImage = roomImage;
-		this.bookingDetails = bookingDetails;
+		this.bookings = bookings;
 	}
 
 	@Id
@@ -83,12 +83,12 @@ public class Room implements java.io.Serializable {
 		this.roomName = roomName;
 	}
 
-	@Column(name = "room_price", nullable = false, length = 45)
-	public String getRoomPrice() {
+	@Column(name = "room_price", nullable = false)
+	public int getRoomPrice() {
 		return this.roomPrice;
 	}
 
-	public void setRoomPrice(String roomPrice) {
+	public void setRoomPrice(int roomPrice) {
 		this.roomPrice = roomPrice;
 	}
 
@@ -120,12 +120,12 @@ public class Room implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
-	public Set<BookingDetail> getBookingDetails() {
-		return this.bookingDetails;
+	public Set<Booking> getBookings() {
+		return this.bookings;
 	}
 
-	public void setBookingDetails(Set<BookingDetail> bookingDetails) {
-		this.bookingDetails = bookingDetails;
+	public void setBookings(Set<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 }

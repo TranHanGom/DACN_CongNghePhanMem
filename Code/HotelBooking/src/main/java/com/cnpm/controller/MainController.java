@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.cnpm.service.RoomImageService;
+
 import com.cnpm.service.RoomService;
 import com.cnpm.service.RoomTypeService;
 import com.cnpm.utils.ImageUtil;

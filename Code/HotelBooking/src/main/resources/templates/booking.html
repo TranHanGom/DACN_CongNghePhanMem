@@ -21,29 +21,48 @@
 	<body>
 		<div class="wrapper">
 			<div class="inner">
-				
+				<div class="image-holder">
+					<img src="images/form-wizard.jpg" alt="">
+					<h3>Your Booking</h3>
+				</div>
             	<div id="wizard">
             		
 
 					<!-- SECTION 2 -->
 	                <h4>Room Information</h4> 
+	               
 	                <section class="section-style">
                 		
                 		<div class="form-wrapper">
-							
+                		<div class="form-row">
+								<div class="form-holder">
+									<input type="text" class="form-control datepicker-here pl-85" data-language="en" data-date-format="dd - m - yyyy" id="dp1">
+									<span class="lnr lnr-chevron-down"></span>
+									<span class="placeholder">Check in :</span>
+								</div>
+								<div class="form-holder">
+									<input type="text" class="form-control datepicker-here pl-96" data-language="en" data-date-format="dd - m - yyyy" id="dp2">
+									<span class="lnr lnr-chevron-down"></span>
+									<span class="placeholder">Check out :</span>
+								</div>
+							</div>
+							<h5>Your Stay : <a th:text="${session.stay.size()}"></a> room</h5>
                 			<div class="form-row">
                 				<div class="form-holder w-100 room-detail">
 									
 									<div class="bill">
-										<div class="bill-cell" th:each="item : ${session.stay}">
+										<div class="bill-cell" th:each="item,i : ${session.stay}" >
 											<div class="bill-item">
+											  
 												<div class="bill-unit">
-													Room 1 :  <span th:text="${item.room.roomName}"></span>
+													  <span th:text="${item.room.roomName}"></span>
 												</div>
-												<span class="price" th:text="${item.room.roomPrice}"></span>
+												<a><span class="price" th:text="${item.room.roomPrice}"></span> $/Day</a>
 											</div>
-											<div class="bill-item people">
+											<div class="bill-item people" >
 												
+												<a th:href="@{'/booking/remove/'+ ${i.index}}" style="color: aliceblue;"><small>Remove</small></a>
+											
 											</div>
 										</div>
 										
@@ -53,10 +72,12 @@
 												<div class="bill-unit">
 													Total Price :
 												</div>
-												<span class="price">$88</span>
+												<span class="price" th:text="${total}"></span>
 											</div>
-											
-											
+											<a href="/room" style="margin-left: 420px;color: aliceblue; text-decoration: underline;"><small>Add Room</small></a>
+											 <a ><button class="forward" style="width: 195px; margin-top: 44px;">Confirmation
+							<i class="zmdi zmdi-long-arrow-right" ></i>
+						</button></a>
 										</div>
 									</div>	
 								</div>
@@ -65,7 +86,7 @@
                 			
                 			
 	                		<button class="forward">Book now
-								<i class="zmdi zmdi-long-arrow-right"></i>
+								<i  class="zmdi zmdi-long-arrow-right"></i>
 							</button>
                 		</div>
 	                </section>
@@ -106,104 +127,12 @@
 								<span class="checkmark"></span>
 							</label>
 						</div>
-	                    <button class="forward" style="width: 195px; margin-top: 44px;">Book by email
-							<i class="zmdi zmdi-long-arrow-right"></i>
-						</button>
+	                    <a ><button class="forward" style="width: 195px; margin-top: 44px;">Confirmation
+							<i class="zmdi zmdi-long-arrow-right" ></i>
+						</button></a>
 	                </section>
 
-	                <!-- SECTION 4 -->
-	                <h4>Confirmation</h4>
-	                <section class="section-style">
-						<div class="board-wrapper">
-                			<div class="board-inner">
-                				<div class="board-item">
-                					Check In :
-                					<span>2-5-2018</span>
-                				</div>
-                				<div class="board-item">
-                					Check Out :
-                					<span>8-5-2018</span>
-                				</div>
-                			</div>
-                		</div>
-                		<div class="pay-wrapper">
-                			<div class="bill">
-	                			<div  class="bill-cell">
-	                				<div class="bill-item">
-		            					<div class="bill-unit">
-		            						Room 1 :  <span ></span>
-		            					</div>
-		            					<span class="price" ></span>
-		            				</div>
-		            				<div class="bill-item people">
-		            					<div class="bill-unit">
-		            						Adult : <span>2</span>
-		            					</div>
-		            					<div class="bill-unit">
-		            						Children : <span>0</span>
-		            					</div>
-		            				</div>
-	                			</div>
-	            				<div class="bill-cell" style="margin-bottom: 13px">
-	                				<div class="bill-item">
-		            					<div class="bill-unit">
-		            						Room 2 :  <span>Luxury Room</span>
-		            					</div>
-		            					<span class="price">$23</span>
-		            				</div>
-		            				<div class="bill-item people">
-		            					<div class="bill-unit">
-		            						Adult : <span>4</span>
-		            					</div>
-		            					<div class="bill-unit">
-		            						Children : <span>1</span>
-		            					</div>
-		            				</div>
-		            				<div class="bill-item service">
-		            					<div class="bill-unit">
-		            						Rooms & Services :
-		            					</div>
-		            					<span class="price">$80</span>
-		            				</div>
-	                			</div>
-	                			<div class="bill-cell">
-	                				<div class="bill-item vat">
-		            					<div class="bill-unit">
-		            						Vat 8% :
-		            					</div>
-		            					<span class="price">$08</span>
-		            				</div>
-		            				<div class="bill-item total-price">
-		            					<div class="bill-unit">
-		            						Total Price :
-		            					</div>
-		            					<span class="price">$88</span>
-		            				</div>
-		            				<div class="checkbox-circle">
-										<label>
-											<input type="radio" name="payment" value="full payment" checked> Full Payment<br>
-											<span class="checkmark"></span>
-										</label>
-										<label>
-											<input type="radio" name="payment" value="10% Deposit"> 10% Deposit
-											<span class="checkmark"></span>
-										</label>
-									</div>
-									<div class="bill-item total">
-		            					<div class="bill-unit">
-		            						<span>20% Deposit</span>
-		            						Pay the rest on arrival
-		            					</div>
-		            					<span class="price">$78</span>
-		            				</div>
-	                			</div>
-	            			</div>
-	            			<button style="width: 195px; margin-top: 45px;">Confirmation
-								<i class="zmdi zmdi-long-arrow-right"></i>
-							</button>
-                		</div>
-	                </section>
-            	</div>
+	                </div>
 			</div>
 		</div>
 

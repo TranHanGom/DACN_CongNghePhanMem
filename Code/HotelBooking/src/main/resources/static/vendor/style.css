@@ -234,7 +234,7 @@ select option {
     width: 50%;
     margin-right: 30px; }
   .section-style .form-wrapper, .section-style .pay-wrapper {
-    width: 50%; }
+    width: 100%; }
 
 .board-inner {
   background: #fff;
