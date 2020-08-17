@@ -15,9 +15,7 @@
 
 		<!-- DATE-PICKER -->
 		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
-<!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-	<div th:replace="layout/header :: header-css"/>
+
 		
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="vendor/style.css">
@@ -51,7 +49,7 @@
 									<span class="placeholder">Check out :</span>
 								</div>
 							</div>
-							<h5>Your Stay : <a th:text="${session.stay.size()}"></a> room</h5>
+							<h5 style="color: aliceblue;">Your Stay : <a th:text="${session.stay.size()}"></a> room</h5>
                 			<div class="form-row">
                 				<div class="form-holder w-100 room-detail">
 									
@@ -102,26 +100,6 @@
 	              </div>
 			</div>
 		</div>
-		<!-- Footer Area Start -->
-   <div th:replace="layout/footer :: footer"/>
-    <!-- Footer Area End -->
-
-
-    <!-- **** All JS Files ***** -->
-    <!-- jQuery 2.2.4 -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
-    <script src="js/roberto.bundle.js"></script>
-    <!-- Active -->
-    <script src="js/default-assets/active.js"></script>
-
-		<script src="js/jquery-3.3.1.min.js"></script>
-		
-
 		
 
 		<!-- JQUERY STEP -->

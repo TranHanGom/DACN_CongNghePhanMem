@@ -40,6 +40,11 @@ public class MainController {
     public String login() {
         return "login";
     }
+    @GetMapping("/payment")
+    public String payment() {
+        return "payment";
+    }
+    
     @GetMapping("/register")
     public String register() {
         return "register";
