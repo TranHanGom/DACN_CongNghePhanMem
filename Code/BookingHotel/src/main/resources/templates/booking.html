@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
@@ -15,8 +14,9 @@
 
 		<!-- DATE-PICKER -->
 		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
-
-		
+<!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+	<div th:replace="layout/header :: header-css"/>
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="vendor/style.css">
 	</head>
@@ -24,12 +24,14 @@
 	 <!-- Header Area Start -->
     <div th:replace="layout/header :: header"/>
         <!-- Header Area End -->
+	
 		<div class="wrapper">
 			<div class="inner">
 				
             	<div id="wizard">
             		
 
+			
 					<!-- SECTION 2 -->
 	               
 	                <h4>Room Information</h4> 
@@ -39,17 +41,17 @@
                 		<div class="form-wrapper">
                 		<div class="form-row">
 								<div class="form-holder">
-									<input type="text" class="form-control datepicker-here pl-85" data-language="en" data-date-format="dd - m - yyyy" id="dp1">
+									<input type="text" style="color: aliceblue;" class="form-control datepicker-here pl-85" data-language="en" data-date-format="dd - m - yyyy" id="dp1">
 									<span class="lnr lnr-chevron-down"></span>
 									<span class="placeholder">Check in :</span>
 								</div>
 								<div class="form-holder">
-									<input type="text" class="form-control datepicker-here pl-96" data-language="en" data-date-format="dd - m - yyyy" id="dp2">
+									<input style="color: aliceblue;" type="text" class="form-control datepicker-here pl-96" data-language="en" data-date-format="dd - m - yyyy" id="dp2">
 									<span class="lnr lnr-chevron-down"></span>
 									<span class="placeholder">Check out :</span>
 								</div>
 							</div>
-							<h5 style="color: aliceblue;">Your Stay : <a th:text="${session.stay.size()}"></a> room</h5>
+							<h5 style="color: #edc948;">Your Stay : <a th:text="${session.stay.size()}"></a> room</h5>
                 			<div class="form-row">
                 				<div class="form-holder w-100 room-detail">
 									
@@ -75,19 +77,14 @@
 												<div class="bill-unit">
 													Total Price :
 												</div>
-												<span class="price" th:text="${total}"></span>
+												<a style="margin-left: 220px; "><span class="price" th:text="${total}"></span>$</a>
 											</div>
 											<a href="/room" style="margin-left: 420px;color: aliceblue; text-decoration: underline;"><small>Add Room</small></a>
 											
 										</div>
 									</div>	
 								</div>
-                			</div>
-                			
-                			
-                			
-	                		
-								
+                			</div>				
 							
 							<a href="/customerinfo"><button class="forward">Book now
 								<i  class="zmdi zmdi-long-arrow-right"></i>
@@ -98,9 +95,27 @@
 
 	               
 	              </div>
-			</div>
-		</div>
-		
+
+	                </div>
+	</div>
+<!-- Footer Area Start -->
+   <div th:replace="layout/footer :: footer"/>
+    <!-- Footer Area End -->
+
+
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- All Plugins -->
+    <script src="js/roberto.bundle.js"></script>
+    <!-- Active -->
+    <script src="js/default-assets/active.js"></script>
+
+		<script src="js/jquery-3.3.1.min.js"></script>
 
 		<!-- JQUERY STEP -->
 		<script src="js/jquery.steps.js"></script>

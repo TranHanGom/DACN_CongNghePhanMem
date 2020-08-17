@@ -58,7 +58,7 @@ public class CustomerController {
 		 
 	    model.addAttribute("booking", booking);
 	   
-	    return "customerinfo";
+	    return "payment";
 	  }
 	
 }

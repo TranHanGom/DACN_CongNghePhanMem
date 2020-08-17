@@ -42,7 +42,7 @@ public class BookingController {
 	@RequestMapping(method = RequestMethod.GET)
     public String index(HttpSession session,ModelMap model) {
 	int countItems=0;
-	double total=0;
+	int total=0;
 	if (session.getAttribute("stay" )!=null) {
 		List<Item> cart=(List<Item>) session.getAttribute("stay");
 		countItems=cart.size();
